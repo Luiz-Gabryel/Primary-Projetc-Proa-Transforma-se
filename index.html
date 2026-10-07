@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <h1>Acesso ao Sistema</h1>
+    <input type="email" placeholder="Digite seu e-mail" /><br />
+    <input type="password" placeholder="Digite sua senha" /><br />
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="login()">Entrar</button>
+    <script src="supabase-config.js"></script>
+
+    <script>
+        
+      //cadastrar um novo usuario
+      async function cadastrar() {
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+
+        const resultado = await clienteSupabase.auth.singUp({
+          email: email,
+          password: senha,
+        });
+
+        //se nao tiver erro, ira pra nova pagina
+        if (!resultado.error) {
+          window.location.replace("dashborard.html");
+        }
+      }
+    </script>
+  </body>
+</html>
