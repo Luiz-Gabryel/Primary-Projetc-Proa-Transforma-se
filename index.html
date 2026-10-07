@@ -8,14 +8,14 @@
   </head>
   <body>
     <h1>Acesso ao Sistema</h1>
-    <input type="email" placeholder="Digite seu e-mail" /><br />
-    <input type="password" placeholder="Digite sua senha" /><br />
+    <input id="email" placeholder="Digite seu e-mail" /><br />
+    <input id="senha" type="password" placeholder="Digite sua senha" /><br />
     <button onclick="cadastrar()">Cadastrar</button>
     <button onclick="login()">Entrar</button>
     <script src="supabase-config.js"></script>
 
     <script>
-        
+
       //cadastrar um novo usuario
       async function cadastrar() {
         const email = document.getElementById("email").value;
@@ -28,7 +28,7 @@
 
         //se nao tiver erro, ira pra nova pagina
         if (!resultado.error) {
-          window.location.replace("dashborard.html");
+          window.location.replace("dashboard.html");
         }
       }
     </script>
