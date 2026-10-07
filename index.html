@@ -22,13 +22,12 @@
 
         const resultado = await clienteSupabase.auth.signUp({
           email: email,
-          password: senha
+          password: senha,
         });
-      }
-
-      //se nao tiver erro, ira pra nova pagina
-      if (!resultado.error) {
-        window.location.replace("dashboard.html");
+        //se nao tiver erro, ira pra nova pagina
+        if (!resultado.error) {
+          window.location.replace("dashboard.html");
+        }
       }
     </script>
   </body>
