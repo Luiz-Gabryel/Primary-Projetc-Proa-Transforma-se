@@ -25,10 +25,24 @@
           password: senha,
         });
 
-        //se nao tiver erro, ira pra nova pagina
-        if (!resultado.error) {
+        const { data, error } = await clienteSupabase.auth.signUp({
+          email: email,
+          password: senha,
+        });
+
+        if (error) {
+          alert("Erro ao cadastrar: " + error.message);
+        } else {
+          alert(
+            "Cadastro realizado! Verifique seu e-mail para confirmar a conta.",
+          );
           window.location.replace("dashboard.html");
         }
+      }
+
+      //se nao tiver erro, ira pra nova pagina
+      if (!resultado.error) {
+        window.location.replace("dashboard.html");
       }
     </script>
   </body>
