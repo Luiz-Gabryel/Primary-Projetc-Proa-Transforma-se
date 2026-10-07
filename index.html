@@ -15,13 +15,12 @@
     <script src="supabase-config.js"></script>
 
     <script>
-
       //cadastrar um novo usuario
       async function cadastrar() {
         const email = document.getElementById("email").value;
         const senha = document.getElementById("senha").value;
 
-        const resultado = await clienteSupabase.auth.singUp({
+        const resultado = await clienteSupabase.auth.signUp({
           email: email,
           password: senha,
         });
